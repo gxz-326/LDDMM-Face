@@ -9,8 +9,9 @@ from .cofw import COFW
 from .face300w import Face300W
 from .wflw import WFLW
 from .helen import Helen
+from .aflfp import AFLFP
 
-__all__ = ['AFLW', 'COFW', 'Face300W', 'WFLW', 'Helen', 'get_dataset', 'get_testset']
+__all__ = ['AFLW', 'COFW', 'Face300W', 'WFLW', 'Helen', 'AFLFP', 'get_dataset', 'get_testset']
 
 
 def get_dataset(config):
@@ -25,6 +26,8 @@ def get_dataset(config):
         return WFLW
     elif config.DATASET.DATASET == 'Helen':
         return Helen
+    elif config.DATASET.DATASET == 'AFLFP':
+        return AFLFP
     else:
         raise NotImplemented()
 
@@ -40,6 +43,8 @@ def get_testset(config):
         return WFLW
     elif config.TEST.DATASET == 'Helen':
         return Helen
+    elif config.TEST.DATASET == 'AFLFP':
+        return AFLFP
     else:
         raise NotImplemented()
 
